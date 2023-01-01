@@ -61,7 +61,7 @@
     <v-spacer class="my-2" />
     <a href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-several-audio-features">audio_featuresに関する公式ドキュメント(developer.spotify.com)</a>
     <br>
-    <nuxt-link to="/">[別版]Spotify APIで得られる楽曲の特徴データ(audio_features)から、ミリオンライブの楽曲を見つけるやつ</nuxt-link>
+    <nuxt-link to="/">Spotify APIで得られる楽曲の特徴データ(audio_features)から、ミリオンライブの楽曲を見つけるやつ</nuxt-link>
     <v-dialog v-model="dialog_click" max-width="400">
         <v-card>
         <v-card-text>
