@@ -174,11 +174,6 @@ export default {
             this.mode = [this.buf_item.mode, this.buf_item.mode]
             this.speechiness = [Math.max(0,this.buf_item.speechiness - 0.1), Math.min(1,this.buf_item.speechiness + 0.1)]
             this.valence = [Math.max(0,this.buf_item.valence - 0.1), Math.min(1,this.buf_item.valence + 0.1)]
-        },
-        picSize () {
-            if (this.$vuetify.breakpoint.name === 'xs') {
-                return 100
-            }
         }
     }
 }
