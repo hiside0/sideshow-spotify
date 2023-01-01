@@ -16,22 +16,25 @@
     <v-range-slider v-model="valence" step="0.01" min="0" max="1" label="valence" thumb-label="always" />
 
     <div class="d-flex">
-            <div class="mr-2">
-                <v-btn color="primary" @click="getSearchData()" width="150">指標値から探す</v-btn>
-            </div>
-            <div class="flex-grow-1">
-                <v-btn color="primary" @click="clearSearchParam()" width="150">条件を初期化</v-btn>
-           </div>
+        <div class="mr-2">
+            <v-btn color="primary" @click="getSearchData()" width="150">指標値から探す</v-btn>
+        </div>
+        <div class="flex-grow-1">
+            <v-btn color="primary" @click="clearSearchParam()" width="150">条件を初期化</v-btn>
+        </div>
     </div>
 
     <v-spacer class="mb-4" />
     <div class="d-flex">
-            <div class="mr-2">
-                <v-btn color="primary" @click="getSearchDataFromString()" width="150">曲名から探す</v-btn>
-            </div>
-            <div class="flex-grow-1">
-                <v-text-field v-model="search" height="10" class="caption mb-n2" dense clearable flat solo-inverted hide-details prepend-inner-icon="mdi-magnify" label="search: (曲名の一部)" @change="getSearchDataFromString()" />
-           </div>
+        <div class="mr-2">
+            <v-btn color="primary" @click="getSearchDataFromString()" width="150">曲名から探す</v-btn>
+        </div>
+        <div class="flex-grow-1">
+            <v-text-field v-model="search" height="10" class="caption mb-n2"
+                dense clearable flat solo-inverted hide-details prepend-inner-icon="mdi-magnify"
+                label="search: (曲名の一部)" @change="getSearchDataFromString()"
+            />
+        </div>
     </div>
     <v-spacer class="mb-4" />
     <span v-if="this.lengthResult != -1">検索結果: {{this.lengthResult}}曲（Spotify人気順に、20曲まで表示）</span>
@@ -58,7 +61,9 @@
         </v-col>
 	</template>
     <v-spacer class="my-2" />
-    <a href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-several-audio-features">audio_featuresに関する公式ドキュメント(developer.spotify.com)</a>
+    <a href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-several-audio-features">
+        audio_featuresに関する公式ドキュメント(developer.spotify.com)
+    </a>
     <br>
     <nuxt-link to="/">Spotify APIで得られる楽曲の特徴データ(audio_features)から、ミリオンライブの楽曲を見つけるやつ</nuxt-link>
     <v-dialog v-model="dialog_click" max-width="400">
@@ -98,7 +103,7 @@ export default {
       return { picSize }
     },
 	data () {
-		return {
+        return {
             dialog_click: false,
             search: '',
             buf_item: [],
@@ -107,7 +112,7 @@ export default {
             }),
             result: [],
             lengthResult: -1,
-			acousticness: [0,1],
+            acousticness: [0,1],
             danceability: [0,1],
             energy: [0,1],
             instrumentalness: [0,1],
