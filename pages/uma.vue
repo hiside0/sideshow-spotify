@@ -88,19 +88,19 @@ import { useDisplay } from 'vuetify';
 import data from '~~/assets/json/data2.json';
 export default {
     setup () {
-      const { name } = useDisplay()
-      const picSize = computed(() => {
-        switch (name.value) {
-          case 'xs': return 100
-          case 'sm': return 150
-          case 'md': return 150
-          case 'lg': return 150
-          case 'xl': return 150
-          case 'xxl': return 150
-        }
-        return undefined
-      })
-      return { picSize }
+        const { name } = useDisplay()
+        const picSize = computed(() => {
+            switch (name.value) {
+                case 'xs': return 100
+                case 'sm': return 150
+                case 'md': return 150
+                case 'lg': return 150
+                case 'xl': return 150
+                case 'xxl': return 150
+            }
+            return undefined
+        })
+        return { picSize }
     },
     data () {
         return {
