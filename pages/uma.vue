@@ -59,7 +59,7 @@
                 </div>
             </v-card>
         </v-col>
-	</template>
+    </template>
     <v-spacer class="my-2" />
     <a href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-several-audio-features">
         audio_featuresに関する公式ドキュメント(developer.spotify.com)
@@ -102,7 +102,7 @@ export default {
       })
       return { picSize }
     },
-	data () {
+    data () {
         return {
             dialog_click: false,
             search: '',
@@ -121,8 +121,8 @@ export default {
             mode:[0,1],
             speechiness: [0,1],
             valence: [0,1]
-		}
-	},
+        }
+    },
     methods: {
         getSearchData () {
             this.result = []
