@@ -34,22 +34,21 @@
            </div>
     </div>
     <v-spacer class="mb-4" />
-    <span v-if="this.lengthResult != -1">検索結果: {{this.lengthResult}}曲（Spotify人気順に、上位から20曲まで表示）</span>
+    <span v-if="this.lengthResult != -1">検索結果: {{this.lengthResult}}曲（Spotify人気順に、20曲まで表示）</span>
     <template v-for="d in result" v-bind:key="d.id">
         <v-col>
             <v-card class="pa-2" elevation="10">
                 <div class="d-flex">
                     <div>
-                        <v-img v-bind:src="d.image" width="150" max-width="150" />
+                        <v-img v-bind:src="d.image" :width="this.picSize" :max-width="this.picSize" />
                     </div>
                     <div class="flex-grow-1">
-                        <v-chip class="mx-2" label>曲名</v-chip><span style="margin-top: 5px;">{{d.name}}</span>
+                        <v-chip class="pa-2 mx-2" label>曲名</v-chip><span>{{d.name}}</span>
                     </div>
                     <div class="d-flex flex-row-reverse">
                         <v-btn icon outlined elevation="0" :href="`https://open.spotify.com/track/${d.id}?go=1`" target="_blank">
                             <v-icon>mdi-spotify</v-icon>
                         </v-btn>
-                        <v-spacer class="mx-1" />
                         <v-btn icon outlined elevation="0" @click="showClickDialog(d);">
                             <v-icon>mdi-tune</v-icon>
                         </v-btn>
@@ -79,8 +78,25 @@
 
 <script>
 const MIN_LOUDNESS = -10.238;
+import { computed } from 'vue';
+import { useDisplay } from 'vuetify';
 import data from '~~/assets/json/data.json';
 export default {
+    setup () {
+      const { name } = useDisplay()
+      const picSize = computed(() => {
+        switch (name.value) {
+          case 'xs': return 100
+          case 'sm': return 150
+          case 'md': return 150
+          case 'lg': return 150
+          case 'xl': return 150
+          case 'xxl': return 150
+        }
+        return undefined
+      })
+      return { picSize }
+    },
 	data () {
 		return {
             dialog_click: false,
@@ -153,7 +169,11 @@ export default {
             this.mode = [this.buf_item.mode, this.buf_item.mode]
             this.speechiness = [Math.max(0,this.buf_item.speechiness - 0.1), Math.min(1,this.buf_item.speechiness + 0.1)]
             this.valence = [Math.max(0,this.buf_item.valence - 0.1), Math.min(1,this.buf_item.valence + 0.1)]
-            
+        },
+        picSize () {
+            if (this.$vuetify.breakpoint.name === 'xs') {
+                return 100
+            }
         }
     }
 }
