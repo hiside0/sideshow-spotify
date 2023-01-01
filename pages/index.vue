@@ -102,7 +102,7 @@ export default {
             dialog_click: false,
             search: '',
             buf_item: [],
-			data: data.sort(function(a,b) {
+            data: data.sort(function(a,b) {
                 return (a.popularity > b.popularity)? -1 : 1;
             }),
             result: [],
