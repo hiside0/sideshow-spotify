@@ -123,6 +123,12 @@ export default {
             valence: [0,1]
         }
     },
+    mouned () {
+        windows.addEventListener('touchend', function (event) {
+            event.preventDefault();
+            $(event.target).trigger('click');
+        }, false);
+    },
     methods: {
         getSearchData () {
             this.result = []
