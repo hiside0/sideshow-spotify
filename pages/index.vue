@@ -181,7 +181,7 @@ export default {
 
 <style>
 html {
-    touch-action: none;
+    touch-action: manipulation;
 }
 
 .v-label {
