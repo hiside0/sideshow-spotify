@@ -175,18 +175,15 @@ export default {
             this.speechiness = [Math.max(0,this.buf_item.speechiness - 0.1), Math.min(1,this.buf_item.speechiness + 0.1)]
             this.valence = [Math.max(0,this.buf_item.valence - 0.1), Math.min(1,this.buf_item.valence + 0.1)]
         }
-    },
-    head () {
-        return {
-            meta: [
-                { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' }
-            ]
-        }
     }
 }
 </script>
 
 <style>
+html {
+    touch-action: none;
+}
+
 .v-label {
     min-width: 140px;
 }
