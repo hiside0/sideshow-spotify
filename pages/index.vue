@@ -123,6 +123,13 @@ export default {
             valence: [0,1]
         }
     },
+    mounted () {
+        /* ダブルタップによる拡大縮小を禁止 */
+        document.addEventListener('touchend', function (event) {
+            event.preventDefault();
+            $(event.target).trigger('dblclick');
+        }, false);
+    },
     methods: {
         getSearchData () {
             this.result = []
@@ -180,9 +187,6 @@ export default {
 </script>
 
 <style>
-:root {
-    touch-action: manipulation;
-}
 .v-label {
     min-width: 140px;
 }
