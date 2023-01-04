@@ -123,12 +123,6 @@ export default {
             valence: [0,1]
         }
     },
-    mounted () {
-        window.addEventListener('touchend', function (event) {
-            event.preventDefault();
-            $(event.target).trigger('click');
-        }, false);
-    },
     methods: {
         getSearchData () {
             this.result = []
@@ -186,6 +180,9 @@ export default {
 </script>
 
 <style>
+:root {
+    touch-action: manipulation;
+}
 .v-label {
     min-width: 140px;
 }
