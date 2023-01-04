@@ -180,7 +180,7 @@ export default {
 </script>
 
 <style>
-:root {
+html {
     touch-action: manipulation;
 }
 .v-label {
