@@ -123,8 +123,8 @@ export default {
             valence: [0,1]
         }
     },
-    mouned () {
-        windows.addEventListener('touchend', function (event) {
+    mounted () {
+        window.addEventListener('touchend', function (event) {
             event.preventDefault();
             $(event.target).trigger('click');
         }, false);
