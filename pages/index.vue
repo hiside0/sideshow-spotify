@@ -125,9 +125,9 @@ export default {
     },
     mounted () {
         /* ダブルタップによる拡大縮小を禁止 */
-        document.addEventListener('touchend', function (event) {
+        document.addEventListener('touchstart', function (event) {
             event.preventDefault();
-            $(event.target).trigger('dblclick');
+            $(event.target).trigger('click');
         }, false);
     },
     methods: {
