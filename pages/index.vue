@@ -180,10 +180,6 @@ export default {
 </script>
 
 <style>
-html {
-    touch-action: manipulation;
-}
-
 .v-label {
     min-width: 140px;
 }
